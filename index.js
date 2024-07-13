@@ -22,6 +22,7 @@ io.on('connection', socket => {
   });
 
   socket.on('send_message', data => {
+    console.log('send_message Event : ', data);
     const {message, targetSocketId} = data;
     io.to(targetSocketId).emit('receive_message', message);
   });
